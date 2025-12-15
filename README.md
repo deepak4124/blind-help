@@ -2,17 +2,17 @@
 
 An AI-powered mobile application designed to assist visually impaired users by providing audio descriptions of images. The app uses advanced deep learning models for object detection and image captioning, converting visual information into spoken descriptions.
 
-## 🌟 Features
+## Features
 
 - **Image Analysis**: Upload or capture images to get detailed descriptions
-- **Object Detection**: Identifies objects in images using Faster R-CNN with ResNet-50
+- **Object Detection**: Identifies objects in images using Faster R-CNN with ResNet-50 and LLava (ViT) for improved scene description and OCR capabilites
 - **Image Captioning**: Generates natural language descriptions using BLIP (Bootstrapping Language-Image Pre-training)
 - **Text-to-Speech**: Converts image descriptions into audio using Google Text-to-Speech
 - **Audio Playback**: Listen to image descriptions with play/pause controls
 - **Mobile-First Design**: Built with React Native for cross-platform compatibility (iOS, Android, Web)
 - **User-Friendly Interface**: Simple, accessible UI designed with accessibility in mind
 
-## 🏗️ Architecture
+## Architecture
 
 The application follows a client-server architecture:
 
@@ -53,7 +53,7 @@ The application follows a client-server architecture:
 - **Expo Image Picker**: Image selection from device
 - **Expo AV**: Audio playback functionality
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### Backend Requirements
 - Python 3.8 or higher
@@ -67,7 +67,7 @@ The application follows a client-server architecture:
 - Expo CLI
 - iOS Simulator (for iOS development) or Android Studio (for Android development)
 
-## 🚀 Installation
+## Installation
 
 ### Backend Setup
 
@@ -148,7 +148,7 @@ The application follows a client-server architecture:
    - **Android**: Press `a` in the terminal or run `npm run android`
    - **Web**: Press `w` in the terminal or run `npm run web`
 
-## 🎯 Usage
+## Usage
 
 ### Using the Mobile App
 
@@ -206,7 +206,7 @@ Retrieve the generated audio file.
 
 **Response**: Audio file (MP3 format)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 blind-help/
@@ -234,7 +234,7 @@ blind-help/
 └── README.md
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Backend Configuration
 
@@ -281,97 +281,3 @@ The backend uses several configuration options that can be customized:
    ```javascript
    const max_file_size = 5 * 1024 * 1024; // 5MB
    ```
-
-## 🐛 Troubleshooting
-
-### Backend Issues
-
-**Issue**: `Model not found` error
-- **Solution**: Ensure the BLIP model is downloaded in the `models/blip-image-captioning-base/` directory
-
-**Issue**: `CUDA out of memory`
-- **Solution**: The app will automatically fall back to CPU. Consider reducing image resolution or using a machine with more GPU memory
-
-**Issue**: `Port 8000 already in use`
-- **Solution**: Change the port: `uvicorn main:app --port 8001`
-
-### Frontend Issues
-
-**Issue**: `Network Error` when uploading images
-- **Solution**: 
-  1. Verify the backend is running
-  2. Check the `BASE_URL` is correctly set
-  3. Ensure your device can reach the backend (same network for physical devices)
-
-**Issue**: Audio not playing
-- **Solution**: 
-  1. Check device volume settings
-  2. Verify audio permissions are granted
-  3. Ensure the backend successfully generated the audio file
-
-**Issue**: "Invalid file type" error
-- **Solution**: Only JPG, JPEG, and PNG formats are supported. Convert your image or try a different file.
-
-**Issue**: "File size exceeds limit" error
-- **Solution**: Compress the image or select a smaller image (max 5MB)
-
-### Common Development Issues
-
-**Issue**: Expo app not connecting to development server
-- **Solution**:
-  1. Ensure your device and computer are on the same network
-  2. Try running with tunnel: `expo start --tunnel`
-  3. Clear Expo cache: `expo start -c`
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit your changes**: `git commit -m 'Add amazing feature'`
-4. **Push to the branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow the existing code style
-- Add comments for complex logic
-- Test your changes thoroughly on both iOS and Android (if possible)
-- Update documentation for any new features
-- Ensure the backend passes all tests before submitting
-
-## 📝 License
-
-This project is licensed under the 0BSD License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- **BLIP Model**: Salesforce Research for the BLIP image captioning model
-- **Faster R-CNN**: Facebook AI Research for object detection
-- **Expo**: For the excellent React Native development platform
-- **FastAPI**: For the modern Python web framework
-
-## 📧 Support
-
-For issues, questions, or suggestions:
-- Open an issue on GitHub
-- Check existing issues for similar problems
-- Provide detailed information about your environment and the issue
-
-## 🔮 Future Enhancements
-
-- [ ] Real-time camera capture and analysis
-- [ ] Multi-language support for audio descriptions
-- [ ] Offline mode with on-device models
-- [ ] Scene understanding with more context
-- [ ] Object counting and spatial relationships
-- [ ] Integration with voice commands
-- [ ] History of analyzed images
-- [ ] Customizable TTS voice and speed
-- [ ] Cloud deployment options
-- [ ] Enhanced accessibility features
-
----
-
-**Made with ❤️ for improving accessibility through AI**
